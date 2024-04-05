@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+            rel="stylesheet">
+    <style>
+        body {
+            background: url(bg.jpeg) no-repeat;
+            background-size: cover;
+            background-position: center;
+            backdrop-filter: blur(7px);
+            z-index: -1;
+        }
+
+        .recipes {
+            padding: 50px 0;
+        }
+
+        .recipes h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 28px;
+            color: #0a0a0a;
+        }
+
+        .recipe-section {
+            width: 90%;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            column-gap: 10px;
+        }
+
+        .recipe-card {
+            background: #0c0b0b;
+            margin: 30px 10px;
+            border-radius: 10px;
+            border: 2px solid rgb(5, 5, 5);
+        }
+
+        .recipe-card img {
+            object-fit: cover;
+            width: 100%;
+            height: 300px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .recipe-card h2 {
+            font-size: 22px;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        .recipe-card a {
+            display: block;
+        }
+
+
+          .container {
+            position: relative;
+            width: 100%;
+          }
+          .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #0a0a0a;
+            overflow: hidden;
+            width: 0;
+            height: 100%;
+            transition: .8s ease;
+          }
+
+          .container:hover .overlay {
+            width: 100%;
+          }
+
+          .text {
+            color: white;
+            font-size: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+          }
+          .text .btn{
+            width: 100%;
+            height: 45px;
+            background: #fff;
+            border: none;
+            outline: none;
+            border-radius: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,.1);
+            cursor: pointer;
+            font-size: 16px;
+            color: black;
+            font-weight: 600;
+        }
+        .text a{
+            color: black;
+            text-decoration: none;
+
+        }
+        .text a:hover{
+            text-decoration: underline;
+        }
+        .show-more {
+            padding: 10px 0;
+            text-align: center;
+          }
+          .rate {
+            width: calc(100% - 55px);
+            height: 30px;
+            padding: 1px 10px;
+
+          }
+          .rate:not(:checked) > input {
+            position:absolute;
+            top:-9999px;
+          }
+          .rate:not(:checked) > label {
+            float:right;
+            width:1em;
+            overflow:hidden;
+            white-space:nowrap;
+            cursor:pointer;
+            font-size:30px;
+            color:#ccc;
+          }
+          .rate:not(:checked) > label:before {
+            content: '★ ';
+          }
+          .rate > input:checked ~ label {
+            color: #ffc700;
+          }
+          .rate:not(:checked) > label:hover,
+          .rate:not(:checked) > label:hover ~ label {
+            color: #deb217;
+          }
+          .rate > input:checked + label:hover,
+          .rate > input:checked + label:hover ~ label,
+          .rate > input:checked ~ label:hover,
+          .rate > input:checked ~ label:hover ~ label,
+          .rate > label:hover ~ input:checked ~ label {
+            color: #c59b08;
+          }
+
+    </style>
+</head>
+<body>
+<section class="recipes">
+    <h1><b>Featured Recipes</b></h1>
+    <div class="recipe-section">
+        <div class="recipe-card">
+            <div class=main-container>
+                <div class="container">
+                    <img src="poodi idli.jpg"
+                         alt="" width="300" height="400">
+                    <div class="overlay">
+                        <div class="text"><button type="submit" class="btn"><a id="myrecipe" href="https://www.indianhealthyrecipes.com/idli-podi-recipe-idli-podi/">View Recipe</a></button></div>
+                    </div>
+                    <h2>Poodi Idly</h2>
+
+                </div>
+            </div>
+            <div class="rate">
+                <input type="radio" id="poodi-idli-star5" name="rate" value="5" />
+                <label for="poodi-idli-star5" title="text">5 stars</label>
+                <input type="radio" id="poodi-idli-star4" name="rate" value="4" />
+                <label for="poodi-idli-star4" title="text">4 stars</label>
+                <input type="radio" id="poodi-idli-star3" name="rate" value="3" />
+
+                <label for="poodi-idli-star3" title="text">3 stars</label>
+                <input type="radio" id="poodi-idli-star2" name="rate" value="2" />
+                <label for="poodi-idli-star2" title="text">2 stars</label>
+                <input type="radio" id="poodi-idli-star1" name="rate" value="1" />
+                <label for="poodi-idli-star1" title="text">1 star</label>
+            </div>
+        </div>
+        <div class="recipe-card">
+            <div class=main-container>
+                <div class="container">
+                    <img src="masala dosa.jpg" alt=""
+                         width="300" height="400">
+                    <h2>Masala Dosa</h2>
+                    <div class="overlay">
+                        <div class="text"><button type="submit" class="btn"><a id="myrecipe" href="https://www.indianhealthyrecipes.com/masala-dosa-recipe/">View Recipe</a></button></div>
+                    </div></div>
+            </div>
+            <div class="rate">
+                <input type="radio" id="masala-dosa-star5" name="rate" value="5" />
+                <label for="masala-dosa-star5" title="text">5 stars</label>
+                <input type="radio" id="masala-dosa-star4" name="rate" value="4" />
+                <label for="masala-dosa-star4" title="text">4 stars</label>
+                <input type="radio" id="masala-dosa-star3" name="rate" value="3" />
+                <label for="masala-dosa-star3" title="text">3 stars</label>
+                <input type="radio" id="masala-dosa-star2" name="rate" value="2" />
+                <label for="masala-dosa-star2" title="text">2 stars</label>
+                <input type="radio" id="masala-dosa-star1" name="rate" value="1" />
+                <label for="masala-dosa-star1" title="text">1 star</label>
+            </div>
+        </div>
+        <div class="recipe-card">
+            <div class=main-container>
+                <div class="container">
+                    <img src="poori.jpg" alt=""
+                         width="300" height="400">
+                    <h2>Poori</h2>
+                    <div class="overlay">
+                        <div class="text"><button type="submit" class="btn"><a id="myrecipe" href="https://www.indianhealthyrecipes.com/poori-recipe-puri-recipe/">View Recipe</a></button></div>
+                    </div></div>
+            </div>
+            <div class="rate">
+                <input type="radio" id="poori-star5" name="rate" value="5" />
+                <label for="poori-star5" title="text">5 stars</label>
+                <input type="radio" id="poori-star4" name="rate" value="4" />
+                <label for="poori-star4" title="text">4 stars</label>
+                <input type="radio" id="poori-star3" name="rate" value="3" />
+                <label for="poori-star3" title="text">3 stars</label>
+                <input type="radio" id="poori-star2" name="rate" value="2" />
+                <label for="poori-star2" title="text">2 stars</label>
+                <input type="radio" id="poori-star1" name="rate" value="1" />
+                <label for="poori-star1" title="text">1 star</label>
+            </div>
+        </div>
+        <div class="recipe-card">
+            <div class=main-container>
+                <div class="container">
+                    <img src="venn pongal.jpg" alt="" width="300" height="400">
+                    <h2>Venn Pongal</h2>
+                    <div class="overlay">
+                        <div class="text"><button type="submit" class="btn"><a id="myrecipe" href="https://www.yummytummyaarthi.com/venpongal-rice-and-dal-flavoured-with/">View Recipe</a></button></div>
+                    </div></div>
+            </div>
+            <div class="rate">
+                <input type="radio" id="ven-pongal-star5" name="rate" value="5" />
+                <label for="ven-pongal-star5" title="text">5 stars</label>
+                <input type="radio" id="ven-pongal-star4" name="rate" value="4" />
+                <label for="ven-pongal-star4" title="text">4 stars</label>
+                <input type="radio" id="ven-pongal-star3" name="rate" value="3" />
+                <label for="ven-pongal-star3" title="text">3 stars</label>
+                <input type="radio" id="ven-pongal-star2" name="rate" value="2" />
+                <label for="ven-pongal-star2" title="text">2 stars</label>
+                <input type="radio" id="ven-pongal-star1" name="rate" value="1" />
+                <label for="ven-pongal-star1" title="text">1 star</label>
+            </div>
+        </div>
+        <div class="recipe-card">
+            <div class="container">
+                <img src="veg-thali.jpg" alt="" width="300" height="400">
+                <h2>Veg Thali</h2>
+                <div class="overlay">
+                    <div class="text"><button type="submit" class="btn"><a id="myrecipe" href="https://eastindianrecipes.net/vegetarian-thali/">View Recipe</a></button></div>
+                </div></div>
+            <div class="rate">
+                <input type="radio" id="veg-thali-star5" name="rate" value="5" />
+                <label for="veg-thali-star5" title="text">5 stars</label>
+                <input type="radio" id="veg-thali-star4" name="rate" value="4" />
+                <label for="veg-thali-star4" title="text">4 stars</label>
+                <input type="radio" id="veg-thali-star3" name="rate" value="3" />
+                <label for="veg-thali-star3" title="text">3 stars</label>
+                <input type="radio" id="veg-thali-star2" name="rate" value="2" />
+                <label for="veg-thali-star2" title="text">2 stars</label>
+                <input type="radio" id="veg-thali-star1" name="rate" value="1" />
+                <label for="veg-thali-star1" title="text">1 star</label>
+            </div>
+        </div>
+        <div class="recipe-card">
+            <div class="container">
+                <img src="meals.jpg" alt="" width="300" height="300">
+                <h2>Full Veg Meals</h2>
+                <div class="overlay">
+                    <div class="text"><button type="submit" class="btn"><a id="myrecipe" href="https://rakskitchen.net/lunch-menu-27-full-meals/">View Recipe</a></button></div>
+                </div></div>
+            <div class="rate">
+                <input type="radio" id="meals-star5" name="rate" value="5" />
+                <label for="meals-star5" title="text">5 stars</label>
+                <input type="radio" id="meals-star4" name="rate" value="4" />
+                <label for="meals-star4" title="text">4 stars</label>
+                <input type="radio" id="meals-star3" name="rate" value="3" />
+                <label for="meals-star3" title="text">3 stars</label>
+                <input type="radio" id="meals-star2" name="rate" value="2" />
+                <label for="meals-star2" title="text">2 stars</label>
+                <input type="radio" id="meals-star1" name="rate" value="1" />
+                <label for="meals-star1" title="text">1 star</label>
+            </div>
+        </div>
+
+        <div class="recipe-card">
+            <div class="container">
+                <img src="veg briyani.jpg" alt="" width="300" height="300">
+                <h2>Veg Briyani</h2>
+                <div class="overlay">
+                    <div class="text"><button type="submit" class="btn"><a id="myrecipe" href="https://www.yummytummyaarthi.com/vegetable-biryani-recipe-vegetable/">View Recipe</a></button></div>
+                </div></div>
+            <div class="rate">
+                <input type="radio" id="veg-briyani-star5" name="rate" value="5" />
+                <label for="veg-briyani-star5" title="text">5 stars</label>
+                <input type="radio" id="veg-briyani-star4" name="rate" value="4" />
+                <label for="veg-briyani-star4" title="text">4 stars</label>
+                <input type="radio" id="veg-briyani-star3" name="rate" value="3" />
+                <label for="veg-briyani-star3" title="text">3 stars</label>
+                <input type="radio" id="veg-briyani-star2" name="rate" value="2" />
+                <label for="veg-briyani-star2" title="text">2 stars</label>
+                <input type="radio" id="veg-briyani-star1" name="rate" value="1" />
+                <label for="veg-briyani-star1" title="text">1 star</label>
+            </div>
+        </div>
+        <div class="recipe-card">
+            <div class="container">
+                <img src="chicken-hyderabadi-biryani-01.jpg" alt="" width="300" height="300">
+                <h2>Chicken Briyani</h2>
+                <div class="overlay">
+                    <div class="text"><button type="submit" class="btn"><a id="myrecipe" href="https://www.indianhealthyrecipes.com/chicken-biryani-recipe/">View Recipe</a></button></div>
+                </div></div>
+            <div class="rate">
+                <input type="radio" id="non-veg-star5" name="rate" value="5" />
+                <label for="non-veg-star5" title="text">5 stars</label>
+                <input type="radio" id="non-veg-star4" name="rate" value="4" />
+                <label for="non-veg-star4" title="text">4 stars</label>
+                <input type="radio" id="non-veg-star3" name="rate" value="3" />
+                <label for="non-veg-star3" title="text">3 stars</label>
+                <input type="radio" id="non-veg-star2" name="rate" value="2" />
+                <label for="non-veg-star2" title="text">2 stars</label>
+                <input type="radio" id="non-veg-star1" name="rate" value="1" />
+                <label for="non-veg-star1" title="text">1 star</label>
+            </div>
+        </div>
+        <div class="recipe-card">
+            <div class="container">
+                <img src="non veg meals.jpg" alt="" width="300" height="300">
+                <h2>Full Non Veg Meals</h2>
+                <div class="overlay">
+                    <div class="text"><button type="submit" class="btn"><a id="myrecipe" href="https://youtu.be/TtGemN0vB8U?feature=shared">View Recipe</a></button></div>
+                </div></div>
+            <div class="rate">
+                <input type="radio" id="non-veg-meals-star5" name="rate" value="5" />
+                <label for="non-veg-meals-star5" title="text">5 stars</label>
+                <input type="radio" id="non-veg-meals-star4" name="rate" value="4" />
+                <label for="non-veg-meals-star4" title="text">4 stars</label>
+                <input type="radio" id="non-veg-meals-star3" name="rate" value="3" />
+                <label for="non-veg-meals-star3" title="text">3 stars</label>
+                <input type="radio" id="non-veg-meals-star2" name="rate" value="2" />
+                <label for="non-veg-meals-star2" title="text">2 stars</label>
+                <input type="radio" id="non-veg-meals-star1" name="rate" value="1" />
+                <label for="non-veg-meals-star1" title="text">1 star</label>
+            </div>
+        </div>
+        <div class="recipe-card">
+            <div class="container">
+                <img src="Mutton-Chukka-Varuval.jpg" alt="" width="300" height="300">
+                <h2>Mutton Chukka</h2>
+                <div class="overlay">
+                    <div class="text"><button type="submit" class="btn"><a href="https://www.yummytummyaarthi.com/chettinad-mutton-chukka-mutton-chukka/">View Recipe</a></button></div>
+                </div></div>
+            <div class="rate">
+                <input type="radio" id="chukka-star5" name="rate" value="5" />
+                <label for="chukka-star5" title="text">5 stars</label>
+                <input type="radio" id="chukka-star4" name="rate" value="4" />
+                <label for="chukka-star4" title="text">4 stars</label>
+                <input type="radio" id="chukka-star3" name="rate" value="3" />
+                <label for="chukka-star3" title="text">3 stars</label>
+                <input type="radio" id="chukka-star2" name="rate" value="2" />
+                <label for="chukka-star2" title="text">2 stars</label>
+                <input type="radio" id="chukka-star1" name="rate" value="1" />
+                <label for="chukka-star1" title="text">1 star</label>
+            </div>
+        </div>
+        <div class="recipe-card">
+            <div class="container">
+                <img src="chicken gravy.jpg" alt="" width="300" height="300">
+                <h2>Chicken Gravy</h2>
+                <div class="overlay">
+                    <div class="text"><button type="submit" class="btn"><a href="https://www.yummytummyaarthi.com/chicken-gravy-recipe-south-indian/">View Recipe</a></button></div>
+                </div></div>
+            <div class="rate">
+                <input type="radio" id="gravy-star5" name="rate" value="5" />
+                <label for="gravy-star5" title="text">5 stars</label>
+                <input type="radio" id="gravy-star4" name="rate" value="4" />
+                <label for="gravy-star4" title="text">4 stars</label>
+                <input type="radio" id="gravy-star3" name="rate" value="3" />
+                <label for="gravy-star3" title="text">3 stars</label>
+                <input type="radio" id="gravy-star2" name="rate" value="2" />
+                <label for="gravy-star2" title="text">2 stars</label>
+                <input type="radio" id="gravy-star1" name="rate" value="1" />
+                <label for="gravy-star1" title="text">1 star</label>
+            </div>
+        </div>
+        <div class="recipe-card">
+            <div class="container">
+                <img src="puttu.jpg" alt="" width="300" height="300">
+                <h2>Ragi Puttu</h2>
+                <div class="overlay">
+                    <div class="text"><button type="submit" class="btn"><a href="https://www.yummytummyaarthi.com/ragi-puttu-recipe-finger-millet-puttu/">View Recipe</a></button></div>
+                </div></div>
+            <div class="rate">
+                <input type="radio" id="puttu-star5" name="rate" value="5" />
+                <label for="puttu-star5" title="text">5 stars</label>
+                <input type="radio" id="puttu-star4" name="rate" value="4" />
+                <label for="puttu-star4" title="text">4 stars</label>
+                <input type="radio" id="puttu-star3" name="rate" value="3" />
+                <label for="puttu-star3" title="text">3 stars</label>
+                <input type="radio" id="puttu-star2" name="rate" value="2" />
+                <label for="puttu-star2" title="text">2 stars</label>
+                <input type="radio" id="puttu-star1" name="rate" value="1" />
+                <label for="puttu-star1" title="text">1 star</label>
+            </div>
+        </div>
+        <div class="recipe-card">
+            <div class="container">
+                <img src="aapam.webp" alt="" width="300" height="300">
+                <h2>Aapam</h2>
+                <div class="overlay">
+                    <div class="text"><button type="submit" class="btn"><a href="https://www.yummytummyaarthi.com/homemade-appam-recipe-easy-appam-recipe/">View Recipe</a></button></div>
+                </div></div>
+            <div class="rate">
+                <input type="radio" id="appam-star5" name="rate" value="5" />
+                <label for="appam-star5" title="text">5 stars</label>
+                <input type="radio" id="appam-star4" name="rate" value="4" />
+                <label for="appam-star4" title="text">4 stars</label>
+                <input type="radio" id="appam-star3" name="rate" value="3" />
+                <label for="appam-star3" title="text">3 stars</label>
+                <input type="radio" id="appam-star2" name="rate" value="2" />
+                <label for="appam-star2" title="text">2 stars</label>
+                <input type="radio" id="appam-star1" name="rate" value="1" />
+                <label for="appam-star1" title="text">1 star</label>
+            </div>
+        </div>
+        <div class="recipe-card">
+            <div class="container">
+                <img src="panner tikka.jpg" alt="" width="300" height="300">
+                <h2>Panner Tikka</h2>
+                <div class="overlay">
+                    <div class="text"><button type="submit" class="btn"><a href="https://www.yummytummyaarthi.com/best-paneer-tikka-recipe/">View Recipe</a></button></div>
+                </div></div>
+            <div class="rate">
+                <input type="radio" id="panner-star5" name="rate" value="5" />
+                <label for="panner-star5" title="text">5 stars</label>
+                <input type="radio" id="panner-star4" name="rate" value="4" />
+                <label for="panner-star4" title="text">4 stars</label>
+                <input type="radio" id="panner-star3" name="rate" value="3" />
+                <label for="panner-star3" title="text">3 stars</label>
+                <input type="radio" id="panner-star2" name="rate" value="2" />
+                <label for="panner-star2" title="text">2 stars</label>
+                <input type="radio" id="panner-star1" name="rate" value="1" />
+                <label for="panner-star1" title="text">1 star</label>
+            </div>
+        </div>
+        <div class="recipe-card">
+            <div class="container">
+                <img src="chappathi.jpg" alt="" width="300" height="300">
+                <h2>Chappathi</h2>
+                <div class="overlay">
+                    <div class="text"><button type="submit" class="btn"><a href="https://hebbarskitchen.com/how-to-make-roti-soft-chapati/">View Recipe</a></button></div>
+                </div></div>
+            <div class="rate">
+                <input type="radio" id="chapathi-star5" name="rate" value="5" />
+                <label for="chapathi-star5" title="text">5 stars</label>
+                <input type="radio" id="chapathi-star4" name="rate" value="4" />
+                <label for="chapathi-star4" title="text">4 stars</label>
+                <input type="radio" id="chapathi-star3" name="rate" value="3" />
+                <label for="chapathi-star3" title="text">3 stars</label>
+                <input type="radio" id="chapathi-star2" name="rate" value="2" />
+                <label for="chapathi-star2" title="text">2 stars</label>
+                <input type="radio" id="chapathi-star1" name="rate" value="1" />
+                <label for="chapathi-star1" title="text">1 star</label>
+            </div>
+        </div>
+        <div class="recipe-card">
+            <div class="container">
+                <img src="kerala parotta.JPG" alt="" width="300" height="300">
+                <h2>Parotta</h2>
+                <div class="overlay">
+                    <div class="text"><button type="submit" class="btn"><a href="https://www.yummytummyaarthi.com/bun-parotta/">View Recipe</a></button></div>
+                </div></div>
+            <div class="rate">
+                <input type="radio" id="parota-star5" name="rate" value="5" />
+                <label for="parota-star5" title="text">5 stars</label>
+                <input type="radio" id="parota-star4" name="rate" value="4" />
+                <label for="parota-star4" title="text">4 stars</label>
+                <input type="radio" id="parota-star3" name="rate" value="3" />
+                <label for="parota-star3" title="text">3 stars</label>
+                <input type="radio" id="parota-star2" name="rate" value="2" />
+                <label for="parota-star2" title="text">2 stars</label>
+                <input type="radio" id="parota-star1" name="rate" value="1" />
+                <label for="parota-star1" title="text">1 star</label>
+            </div>
+        </div>
+        <div class="recipe-card">
+            <div class="container">
+                <img src="panner butter masala....jfif" alt="" width="300" height="300">
+                <h2>Panner Butter Masala</h2>
+                <div class="overlay">
+                    <div class="text"><button type="submit" class="btn"><a href="https://www.yummytummyaarthi.com/paneer-butter-masala/">View Recipe</a></button></div>
+                </div></div>
+            <div class="rate">
+                <input type="radio" id="butter-masala-star5" name="rate" value="5" />
+                <label for="butter-masala-star5" title="text">5 stars</label>
+                <input type="radio" id="butter-masala-star4" name="rate" value="4" />
+                <label for="butter-masala-star4" title="text">4 stars</label>
+                <input type="radio" id="butter-masala-star3" name="rate" value="3" />
+                <label for="butter-masala-star3" title="text">3 stars</label>
+                <input type="radio" id="butter-masala-star2" name="rate" value="2" />
+                <label for="butter-masala-star2" title="text">2 stars</label>
+                <input type="radio" id="butter-masala-star1" name="rate" value="1" />
+                <label for="butter-masala-star1" title="text">1 star</label>
+            </div>
+        </div>
+        <div class="recipe-card">
+            <div class="container">
+                <img src="paniyaram.webp" alt="" width="300" height="300">
+                <h2>Paniyaram</h2>
+                <div class="overlay">
+                    <div class="text"><button type="submit" class="btn"><a href="https://www.yummytummyaarthi.com/chettinad-kuzhi-paniyaram-recipe/">View Recipe</a></button></div>
+                </div></div>
+            <div class="rate">
+                <input type="radio" id="paniyaram-star5" name="rate" value="5" />
+                <label for="paniyaram-star5" title="text">5 stars</label>
+                <input type="radio" id="paniyaram-star4" name="rate" value="4" />
+                <label for="paniyaram-star4" title="text">4 stars</label>
+                <input type="radio" id="paniyaram-star3" name="rate" value="3" />
+                <label for="paniyaram-star3" title="text">3 stars</label>
+                <input type="radio" id="paniyaram-star2" name="rate" value="2" />
+                <label for="paniyaram-star2" title="text">2 stars</label>
+                <input type="radio" id="paniyaram-star1" name="rate" value="1" />
+                <label for="paniyaram-star1" title="text">1 star</label>
+            </div>
+        </div>
+        <div class="recipe-card">
+            <div class="container">
+                <img src="Dahi-Vada-H1.webp" alt="" width="300" height="300">
+                <h2>Dahi Vada</h2>
+                <div class="overlay">
+                    <div class="text"><button type="submit" class="btn"><a href="https://www.yummytummyaarthi.com/south-indian-thair-vadai-vada-curd/">View Recipe</a></button></div>
+                </div></div>
+            <div class="rate">
+                <input type="radio" id="dahi-vada-star5" name="rate" value="5" />
+                <label for="dahi-vada-star5" title="text">5 stars</label>
+                <input type="radio" id="dahi-vada-star4" name="rate" value="4" />
+                <label for="dahi-vada-star4" title="text">4 stars</label>
+                <input type="radio" id="dahi-vada-star3" name="rate" value="3" />
+                <label for="dahi-vada-star3" title="text">3 stars</label>
+                <input type="radio" id="dahi-vada-star2" name="rate" value="2" />
+                <label for="dahi-vada-star2" title="text">2 stars</label>
+                <input type="radio" id="dahi-vada-star1" name="rate" value="1" />
+                <label for="dahi-vada-star1" title="text">1 star</label>
+            </div>
+        </div>
+        <div class="recipe-card">
+            <div class="container">
+                <img src="kambu.jpg" alt="" width="300" height="300">
+                <h2>Bajra Porridge</h2>
+                <div class="overlay">
+                    <div class="text"><button type="submit" class="btn"><a href="https://www.yummytummyaarthi.com/kambu-koozh-recipe-pearl-millet/">View Recipe</a></button></div>
+                </div></div>
+            <div class="rate">
+                <input type="radio" id="kambu-star5" name="rate" value="5" />
+                <label for="kambu-star5" title="text">5 stars</label>
+                <input type="radio" id="kambu-star4" name="rate" value="4" />
+                <label for="kambu-star4" title="text">4 stars</label>
+                <input type="radio" id="kambu-star3" name="rate" value="3" />
+                <label for="kambu-star3" title="text">3 stars</label>
+                <input type="radio" id="kambu-star2" name="rate" value="2" />
+                <label for="kambu-star2" title="text">2 stars</label>
+                <input type="radio" id="kambu-star1" name="rate" value="1" />
+                <label for="kambu-star1" title="text">1 star</label>
+            </div>
+        </div>
+
+
+</section>
+<script>
+    function myFunction() {
+      const element = document.getElementById("myrecipe").href;
+    }
+    </script>
+</body>
+</html>

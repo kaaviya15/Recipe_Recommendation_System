@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            box-sizing: border-box;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+
+        }
+        body{
+            background-image: url("b.jpg")  ;
+
+            background-size: cover;
+            min-height: 100vh;
+            position:relative;
+            overflow:hidden;
+
+
+        }
+        body::after{
+            content:"";
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            z-index: -1;
+
+            backdrop-filter:blur(5px);
+        }
+        .form-container{
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .wrapper{
+            max-width:1140px;
+            margin:0 auto;
+            padding:0 1rem;
+            background: black;
+            width:100%;
+            height:100%;
+
+            border-radius:5px;
+
+        }
+        .wrapper h2{
+            font-size: 36px;
+            color:white;
+            padding: 2rem 1rem;
+            position: relative;
+        }
+        .wrapper h2::after{
+            content: "";
+            position: absolute;
+            height:5px;
+            top:100px;
+            left:20px;
+            width:18% #0a0909;
+            background:red;
+        }
+        .form-section{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            padding: 1rem;
+
+        }
+        .form-section ul{
+            list-style-type: none;
+            display:flex;
+            flex-direction: column;
+
+        }
+        .form-details .icons{
+            background-color: deeppink;
+            width:50px;
+            height: 50px;
+            margin-right: 1rem;
+            border-radius: 50%;
+
+        }
+        .form-details li {
+            display :flex;
+            align-items: center;
+            padding:1rem;
+            color:white;
+            margin:0.8rem 0;
+        }
+        .form-details li i{
+            font-size: 1.5rem;
+            display:flex;
+            align-items:center;
+            justify-content: center;
+            height:inherit;
+        }
+        .form-details strong{
+            color: white;
+        }
+        .form-group{
+            position: relative;
+            margin:20px;
+            padding: 2.5rem;
+
+        }
+        .from-group .form-control{
+            width:100%;
+            outline:none;
+            border:1px solid #050404;
+            padding:0.8rem;
+            margin:1rem 0;
+            resize:none;
+            border-radius: 5px;
+        font-size:1rem ;
+        box-sizing: border-box;
+border: 1px solid rgb(10, 9, 9);
+ }
+ .from-group span{
+    position:absolute;
+    top:0.8rem;
+    left:0;
+    padding:1 rem;
+    pointer-events: none;
+    font-size: 0.8rem;
+    color:#181515;
+    text-transform: uppercase;
+    transition: 0.5s;
+ }
+ .from-group.form-controL:vaLid ~span,
+ .from-group.form-controL:focus ~span{
+    background: #e50d73;
+    color:#1d1919;
+    transform:translateX(10px) translateY(-10px);
+    font-size:0.8rem;
+    padding:0 10px;
+ }
+ .input-field button{
+    outline:none;
+    border:none ;
+    background:#e50d73;
+    color: #dfd9d9;
+    padding:0.5rem 1rem;
+    border-radius: 5px;
+    font-size:1rem;
+    margin:1rem 0;
+    cursor:pointer;
+    transition: 0.4s;
+ }
+ .input-field button:active{
+    transform:scale(1.1);
+ }
+ @media(max-width:768px){
+    .form-section{
+
+        grid-template-columns:1fr;
+
+
+    }
+    .wrapper h2{
+        font-size: 2rem;
+    }
+    .wrapper h2::after{
+        content: "";
+        position: absolute;
+        height: 3px;
+        top:90px;
+
+    }
+    .form-details li{
+        margin:0.5rem 0;
+        padding: 0.5rem;
+    }
+ }
+
+    </style>
+<body>
+<div class="form-container">
+    <div class="wrapper">
+        <h2> Contact Us</h2>
+        <div class="form-section">
+            <div class="form-details">
+                <ul>
+                    <li>
+                        <div class="icons">
+                            <i class='bx bxs-location-plus'></i>
+                        </div>
+                        <div class="content">
+                            <strong>Location:</strong>
+                            <p>100,North street,Delhi</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icons">
+                            <i class='bx bxs-envelope'></i>
+                        </div>
+                        <div class="content">
+                            <strong>Email:</strong>
+                            <p>recipes123@gmail.com</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icons">
+                            <i class='bx bxs-phone-call'></i>
+                        </div>
+
+                        <div class="content">
+
+                            <strong>Call:</strong>
+
+                            <p>+91123456789</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="input-field">
+                <form>
+                    <div class="from-group">
+                        <input type="text" placeholder="Enter your Name" required="required" class="form-control" >
+
+                    </div>
+                    <div class="from-group">
+                        <input type="email"  placeholder ="Enter your Email " required="required" class="form-control">
+
+                    </div>
+
+                    <div class="from-group">
+
+                        <input type="text" placeholder="Type your Feedback" required="required" class="form-control" >
+
+
+                    </div>
+
+                    <button type="button">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div></div>
+</body>
+</html>

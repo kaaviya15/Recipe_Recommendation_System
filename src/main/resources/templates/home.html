@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family:Verdana, Geneva, Tahoma, sans-serif ;
+        }
+        body{
+            width: 100%;
+            min-height: 100vh;
+            background: #fff;
+        }
+        header{
+            height: 60px;
+            width: 100%;
+            background: black;
+            color: #fff;
+            display: flex;
+            align-items: center;
+        }
+        .container{
+            width: 90%;
+            margin:0 auto;
+            display: flex;
+            align-items:center;
+            justify-content: space-between;
+        }
+        nav ul li{
+            list-style: none;
+            display: inline;
+            margin-right: 20px;
+            font-weight: 500;
+        }
+        .logo{
+            font-size: 24px;
+
+        }
+        .hero{
+            width: 100%;
+            height: auto;
+            background: url(home.jpg) no-repeat;
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 140px 0;
+        }
+        .hero h2{
+            font-size: 36px;
+            margin-bottom: 10px;
+
+        }
+        .hero p{
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .search-box{
+            max-width: 550px;
+            margin: 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+        .search-box input{
+            width: 70%;
+            padding: 10px;
+            outline: none;
+            border: 0;
+            border-radius: 5px 0 0 5px;
+            font-size: 1rem;
+            border: 1px solid black;
+        }
+        .search-box button{
+
+            padding: 10px 20px;
+            outline: none;
+            border: 0;
+            border-radius: 0px 5px 5px 0px;
+            font-size: 1rem;
+            background: black;
+            color:#fff;
+            cursor: pointer;
+        }
+        .container1 {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+
+        h1 {
+            text-align: center;
+        }
+        .food-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-gap: 20px;
+        }
+        .food-item {
+            text-align: center;
+        }
+        .food-img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .food-name {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+        .rating {
+            margin-top: 5px;
+            color: #ff9800;
+        }
+        .stars {
+            color: #ff9800;
+        }
+        .p{
+            line: height 1px;}
+        .nav-list li a{
+            color: white;
+            text-decoration: none;
+        }
+        .nav-list a:hover{
+            color: red;
+
+        }
+      .nav a:link {
+            text-decoration: none;
+          }
+
+          .nav a:visited {
+            text-decoration: none;
+          }
+
+          .nav a:hover {
+            text-decoration: underline;
+          }
+
+          .nav a:active {
+            text-decoration: underline;
+          }
+          .home{
+            color: red;
+          }
+
+    </style>
+    </head>
+    <body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Delicious Recipe</h1>
+            <nav>
+                <ul class="nav-list">
+                    <li class="home">Home</li>
+                    <li><a href="recipe.html">Recipes</a></li>
+                    <li><a href="about us.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="hero-section">
+            <h2>Welcome to our Recipe Collections!</h2>
+            <p>Search mouth watering recipes to satisfy your cravings.</p>
+        </div>
+    </section>
+    <div class="container1">
+        <h1>Recipes Recommended</h1>
+        <ul class="food-list">
+            <li class="food-item">
+                <img class="food-img" src="https://media.istockphoto.com/id/479405790/photo/idli-south-indian-breakfast.jpg?s=612x612&w=0&k=20&c=7ns3jAC0K54PUmk57947vyEXS0LqKxqaTVU30e-z1S4="" alt="Idly">
+                <div class="food-details">
+                    <p> <span class="food-name"><h2>BreakFast<Br></h2>
+                        <h4>Ratings</h4></span></p>
+                    <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+
+                    </span>
+                </div>
+
+            </li>
+            <li class="food-item">
+                <img class="food-img" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTPXgXz4AiEhi_4K9HwlGUZDjvuTF18vntwnOy4uNEuNW29dt9n" alt="Meals">
+                <div class="food-details">
+                    <p><span class="food-name"><h2>Lunch<br></h2>
+                        <h4>Ratings</h4></span></p>
+                    <span class="rating"></p>
+                        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                        </span>
+                </div>
+            </li>
+            <li class="food-item">
+                <img class="food-img" src="https://c.wallhere.com/photos/33/3b/candy_chocolate_white_milk_sweets-1024835.jpg!d" alt="Chocolates">
+                <div class="food-details">
+                    <p>  <span class="food-name"><h2>Chocolates<br></h2>
+                    <h4>Ratings</h4></p></span>
+                    <span class="rating">
+                            <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                        </span>
+                </div>
+            </li>
+            <li class="food-item">
+                <img class="food-img" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTIS3k9aTm_nJHqEpyZtPwNtqTIMVKZkbCxwSM714Ue9upZ6KJn" alt="Snacks">
+                <div class="food-details">
+                    <p> <span class="food-name"><h2>Snacks<br></h2>
+                    <h4>Ratings</h4></span>
+                        <span class="rating">
+                            <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                        </span>
+                </div>
+            </li>
+            <li class="food-item">
+                <img class="food-img" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSrBHF3FbzG4RtjwRWlaNYUPAftmX-gcmMRSTlh16u0iUwwlHuh" alt="Butter Naan">
+                <div class="food-details">
+                    <p><span class="food-name"><h2>Dinner<br></h2>
+                    <h4>Ratings</h4></span>
+                        <span class="rating">
+                            <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                        </span>
+                </div>
+            </li>
+
+
+            <li class="food-item">
+                <img class="food-img" src="https://imageio.forbes.com/specials-images/imageserve/63d45fb7594660b4b94c5504/fresh-cakes/960x0.jpg?format=jpg&width=1440" alt="Desserts">
+                <div class="food-details">
+                    <p ><span class="food-name"><h2>Desserts<br></h2>
+                        <h4>Ratings</h4></p></span>
+                    <span class="rating">
+                            <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                        </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+    </body>
+    </html>
